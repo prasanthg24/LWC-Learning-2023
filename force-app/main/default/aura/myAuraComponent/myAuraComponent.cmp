@@ -1,0 +1,8 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	
+    <lightning:card  variant="Narrow"  title="Aura Hello World" iconname="standard:account">
+    	Hello from Aura
+    </lightning:card>
+    <c:lwcHelloworld aura:id ="childLwc" name="God ON Moon" ></c:lwcHelloworld>
+    <lightning:button label = "Click Me" value ="Test" onclick ="{!c.myAction}"></lightning:button>
+</aura:component>

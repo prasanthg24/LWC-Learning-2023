@@ -1,0 +1,11 @@
+<template>
+    <lightning-card  title="getter Expression">
+      <div class="slds-p-around_medium lgc-bg">
+        <lightning-input type="text" label="First Name" name="firstName" value={firstName} onchange={handleChange}></lightning-input>
+        <lightning-input type="text" label="Last Name" name="lastName" value={lastName} onchange={handleChange}></lightning-input>
+    </div>
+</br>
+    <p class="slds-p-horizontal_small">HELLO, {uppercaseName}</p> 
+
+    </lightning-card>
+</template>

@@ -1,0 +1,50 @@
+<template>
+    <lightning-card title="File Management">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <lightning-button label="Upload" variant="brand" onclick={handleUpload}></lightning-button>
+                <lightning-button label="Create Folder" onclick={handleCreateFolder}></lightning-button>
+            </div>
+            <div class="slds-col">
+                <lightning-input type="search" label="Search" onchange={handleSearch}></lightning-input>
+            </div>
+           <!-- <lightning-file-upload
+                                        label="Upload"
+                                        name="fileUploader"
+                                        accept={acceptedFormats}
+                                        record-id={myRecordId}
+                                       
+                                      onuploadfinished={handleUploadFinished}
+                                        multiple>
+                                </lightning-file-upload>-->
+
+                                 <lightning-input type="file" 
+            accept=".xlsx, .xls, .csv, .png, .doc, .docx, .pdf"
+            label="Attachment" onchange={openfileUpload}></lightning-input>
+        </div>
+
+        <div if:true={showResults}>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning-button label="Previous" onclick={handlePrevious}></lightning-button>
+                </div>
+                <div class="slds-col">
+                    <lightning-button label="Next" onclick={handleNext} variant="brand-inverse"></lightning-button>
+                </div>
+            </div>
+
+            <!-- Display search results here -->
+            <template for:each={searchResults} for:item="result">
+                <div key={result.id} class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <p>{result.name}</p>
+                    </div>
+                    <div class="slds-col">
+                        <lightning-button label="Download" onclick={handleDownload}></lightning-button>
+                        <lightning-button label="Delete" onclick={handleDelete} variant="destructive"></lightning-button>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

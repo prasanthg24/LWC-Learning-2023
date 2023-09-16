@@ -1,0 +1,27 @@
+<template>
+<lightning-card  variant="Narrow"   icon-name="standard:logging" class="slds-icon slds-icon_large">
+                <div class="slds-p-around_medium">
+
+                        <lightning-file-upload  accept={acceptedFormats}  
+                        label="Attach CSV File" 
+                        onuploadfinished={uploadFileHandler}>
+                        </lightning-file-upload>
+
+                <div class="slds-text-body_small slds-text-color_success">
+                    {fileName}
+                    </div>     
+              
+
+
+            </div><br/>  
+
+    <div class="slds-p-around_medium">                    
+
+    <lightning-button label="Export Template" variant="brand" class="slds-button" onclick={exportContacts}></lightning-button>
+
+    <lightning-button label="Import Record" class="slds-button slds-p-left_x-small" variant="brand" onclick={HandleConfirm}></lightning-button>
+
+    </div>
+
+</lightning-card>
+</template>

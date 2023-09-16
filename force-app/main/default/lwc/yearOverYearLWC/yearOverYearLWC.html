@@ -1,0 +1,103 @@
+<template>
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col"></th>
+                <!-- Generate dynamic columns for year and month -->
+                <template for:each={dynamicColumns} for:item="column">
+                    <th key={column} scope="col">{column}</th>
+                </template>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">MRN Count</th>
+                <!-- Loop through the dynamic columns for MRN Count values -->
+                 <template for:each={mrnCountDatas} for:item="record">
+                    <td key={record.Id}>{record}</td>
+                </template>
+                <td>{totalMRNCount}</td>
+              
+            </tr>
+            <tr>
+                <th scope="row">Physician Charges</th>
+                <!-- Loop through the dynamic columns for Physician Charges values -->
+                <template for:each={physicianChargesData} for:item="record">
+                    <td key={record.Id}>${record}</td>
+                </template>
+                <td>${totalPhysicianCharges}</td>
+             
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <!-- table2 -->
+      <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col"></th>
+                <!-- Generate dynamic columns for year and month -->
+                <template for:each={dynamicColumns1} for:item="column">
+                    <th key={column} scope="col">{column}</th>
+                </template>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">MRN Count</th>
+                <!-- Loop through the dynamic columns for MRN Count values -->
+                 <template for:each={mrnCountDatas1} for:item="record1">
+                    <td key={record1.Id}>{record1}</td>
+                </template>
+                <td>{totalMRNCount1}</td>
+              
+            </tr>
+           
+            <tr>
+                <th scope="row">Physical Charges</th>
+                <!-- Loop through the dynamic columns for Physician Charges values -->
+                <template for:each={chargesVariance} for:item="record3">
+                    <td key={record3.Id}>{record3}</td>
+                </template>
+                <td>{totalChargesVariance}</td>
+             
+            </tr>
+        </tbody>
+    </table>
+    <br>
+       <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col"></th>
+                <!-- Generate dynamic columns for year and month -->
+                <template for:each={dynamicColumns1} for:item="column">
+                    <th class="hide-th" key={column} scope="col">{column}</th>
+                </template>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+             <tr class="slds-p-top_medium">
+                <th scope="row">Count Variance</th>
+                <!-- Loop through the dynamic columns for Count Variance -->
+                 <template for:each={countVariances} for:item="record2">
+                    <td key={record2.Id}>{record2}</td>
+                </template>
+                <td>{totalCountVariance}</td>
+              
+            </tr>
+            <tr>
+                <th scope="row">Charges Variance</th>
+                <!-- Loop through the dynamic columns for Physician Charges values -->
+                <template for:each={chargesVariance} for:item="record3">
+                    <td key={record3.Id}>{record3}</td>
+                </template>
+                <td>{totalChargesVariance}</td>
+             
+            </tr>
+        </tbody>
+    </table>       
+</template>

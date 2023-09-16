@@ -1,0 +1,18 @@
+<template>
+  <lightning-card  class="custom-card">
+    <div class="header " >
+      <div class="title-container">
+        <h1 class="title">Related Contacts</h1>
+        <div class="button-container">
+        <c-new-record-button buttonclick={buttonclick} recordid={recordId}></c-new-record-button>
+      </div>
+      </div>
+    </div>
+ 
+    <lightning-datatable class="custom-table"
+      data={contactsData}
+      columns={contactColumns}
+      key-field="Id"
+    ></lightning-datatable>
+  </lightning-card>
+</template>

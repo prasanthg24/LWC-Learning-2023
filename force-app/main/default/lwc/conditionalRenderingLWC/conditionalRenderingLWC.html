@@ -1,0 +1,16 @@
+<template>
+    <lightning-card  title="Conditional Redering LWC checkBox">
+
+<div class="slds-p-around_x-small">
+
+ <lightning-input type="checkbox" label="Click Me" name="ClickMe" onchange={handleChange}></lightning-input>
+    <template if:true={showMe}>
+        I am Visible
+    </template>
+    <template if:false={showMe}>
+        I am Not Visible
+    </template>
+</div>
+     
+    </lightning-card>
+</template>

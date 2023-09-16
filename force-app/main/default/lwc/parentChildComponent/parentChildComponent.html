@@ -1,0 +1,77 @@
+<template>
+<div>
+
+    <lightning-card title="Department Student Accordion">
+
+        <lightning-accordion allow-multiple-sections-open   >
+
+            <template for:each={DepartmentList} for:item="zom">
+
+                <lightning-accordion-section name="zom.name" label={zom.Name} key={zom.Id}>
+
+          
+                    <template for:each={zom.Students__r} for:item="pro">
+
+                        <div key={pro.Id} class="slds-box">
+
+
+                            <article class="slds-card">
+                                <div class="slds-card__header slds-grid">
+                                  <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                    
+                                    <div class="slds-media__body">
+                                      <h2 class="slds-card__header-title">
+                                       
+                                        <template if:true={pro.isApproved__c}>
+
+                                            <strong class="On-Approved">{pro.Name}</strong>
+                                          
+        
+                                        </template>
+        
+                                        <template if:false={pro.isApproved__c}>
+        
+                                            <strong class="On-NotApproved">{pro.Name}</strong>
+        
+                                        </template>
+
+                                      </h2>
+                                    </div>
+                                    <div class="slds-no-flex">
+                                        <template if:false={pro.isApproved__c}>
+                                            <lightning-button
+                                            
+                                                    variant="brand"
+            
+                                                    label="Approve"
+            
+                                                    value={pro.Id}
+            
+                                                    onclick={handleConfirmClick}
+            
+                                                    class="slds-m-left_x-small"
+            
+                                                >
+                                            </lightning-button>
+                                            </template>
+                                    </div>
+                                  </header>
+                                </div>
+                              </article>
+
+
+
+                            
+                        </div>
+
+                    </template>
+               
+                </lightning-accordion-section>
+
+            </template>
+
+        </lightning-accordion>
+
+    </lightning-card>
+    </div>
+</template>

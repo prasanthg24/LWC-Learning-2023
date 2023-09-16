@@ -1,0 +1,30 @@
+<template>
+    <div class="slds-align--absolute-center"  if:true={displayConfirmationModal}>
+        <lightning-card title="Clone with Related Account" variant="base">
+            <div class="slds-var-p-around_xxx-small">
+                 <p>Select related object to Clone</p>
+            </div>
+            <div class="slds-p-around_medium">
+                <lightning-input type="checkbox" label="Contact" checked={shouldCloneContact} onchange={handleCheckboxChange}></lightning-input>
+                <lightning-input type="checkbox" label="Opportunity" checked={shouldCloneOpportunity} onchange={handleCheckboxChange}></lightning-input>
+            </div>
+            <div class="slds-grid slds-grid_align-end slds-p-around_medium">
+                <lightning-button label="OK" variant="brand" onclick={handleConfirmation}></lightning-button>
+                <lightning-button label="Cancel" variant="neutral" onclick={handleCancel}></lightning-button>
+            </div>
+        </lightning-card>
+    </div>
+
+    <div if:true={displayConfirmationMessageModal} class="slds-align--absolute-center">
+        <lightning-card title="Confirmation" variant="base">
+            <div class="slds-var-p-around_xxx-small">
+                <p>Are you sure you want to clone the records?</p>
+            </div>
+            <div class="slds-grid slds-grid_align-end slds-p-around_medium">
+                <lightning-button label="Yes" variant="brand" onclick={performClone}></lightning-button>
+                <lightning-button label="No" variant="neutral" onclick={handleConfirmationCancel}></lightning-button>
+            </div>
+        </lightning-card>
+        
+    </div>
+</template>

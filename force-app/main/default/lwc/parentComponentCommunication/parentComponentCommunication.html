@@ -1,0 +1,11 @@
+<template>
+<P>Child to parent communication</P>
+<lightning-card  variant="Narrow"  title=" parent communication" >
+    count of clicks = {count}
+    </br>
+    message from child = {msg}
+    </br>
+    End Value ={endValue}
+    <c-child-component-communication onincresecount={handleEventChange}></c-child-component-communication>
+</lightning-card>
+</template>

@@ -1,0 +1,42 @@
+<!--<template>
+    <lightning-card title="Related Child Accounts">
+        <lightning-datatable
+            key-field="Id"
+            data={childAccountsData}
+            columns={childAccountColumns}
+            hide-checkbox-column="true">
+        </lightning-datatable>
+    </lightning-card>
+    
+    <lightning-card title="Related Contacts">
+        <lightning-datatable
+            key-field="Id"
+            data={contactsData}
+            columns={contactColumns}
+            hide-checkbox-column="true">
+        </lightning-datatable>
+    </lightning-card>
+</template>
+
+ if:true={childAccountsData}
+ if:true={contactsData}
+ -->
+
+
+<template>
+    <lightning-card title="Child Accounts">
+        <lightning-datatable
+            data={childAccountsData}
+            columns={childAccountColumns}
+            key-field="Id"
+        ></lightning-datatable>
+    </lightning-card>
+
+    <lightning-card title="Contacts" >
+        <lightning-datatable
+            data={contactsData}
+            columns={contactColumns}
+            key-field="Id"
+        ></lightning-datatable>
+    </lightning-card>
+</template>

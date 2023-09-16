@@ -1,0 +1,42 @@
+<template>
+    <lightning-card title='Custom Table' icon-name="custom:custom11">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                  <th class="" scope="col">
+                    <div class="slds-truncate" title="Contact Name">Contact Name</div>
+                  </th>
+                  <th class="" scope="col">
+                    <div class="slds-truncate" title="Account Name">Account Name</div>
+                  </th>
+                  <th class="" scope="col">
+                    <div class="slds-truncate" title="Type">Email</div>
+                  </th>
+                  <th class="" scope="col">
+                    <div class="slds-truncate" title="Rating">Phone</div>
+                  </th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                <template for:each={data1} for:item ='record'>
+                <tr class="" key = {record.Id}>
+                        <td data-label="Account Name">
+                            <div class="slds-cell-wrap"><a href="javascript:void(0);">{record.Salutation} {record.Name}</a></div>
+                        </td>
+                        <td data-label="Parent Account">
+                            <div class="slds-cell-wrap"><a href="javascript:void(0);">{record.Account.Name}</a></div>
+                        </td>
+                        <td data-label="Industry">
+                            <div class="slds-cell-wrap">{record.Email}</div>
+                        </td>
+                        <td data-label="Rating">
+                            <div class="slds-cell-wrap">{record.Phone}</div>
+                        </td>
+                       
+                </tr>
+                </template>
+            </tbody>
+        </table>
+    </lightning-card>
+</template>

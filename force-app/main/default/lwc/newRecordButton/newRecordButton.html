@@ -1,0 +1,176 @@
+<template>
+
+   <lightning-card >
+   <lightning-button label='New' onclick={handleshowModal}></lightning-button>
+
+<template if:true={showAccountModal}>  
+
+<lightning-record-edit-form object-api-name="Account">
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_small" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+                
+                <div class="slds-modal__container">
+                    
+                    <div class="slds-p-around_medium slds-modal__content">
+
+                        <header class="slds-modal__header">
+
+                            <h2 class="slds-text-heading_medium">Create Account</h2>
+
+                        </header>
+
+        <div class=" slds-modal__content slds-grid slds-wrap slds-p-top_small ">
+
+          <div class="slds-col slds-size_1-of-2 slds-p-right_medium">
+{parentAccount}
+       <!-- <lightning-input label="Parent Account" value={parentAccount} onchange={handleParentAccountChange}></lightning-input> onchange={handleParentAccountChange}-->
+ <lightning-input-field  field-name="ParentId" label="Parent Account" value={parentAccount} onchange={handleParentAccountChange} ></lightning-input-field >
+           
+           
+ </div>
+        <template if:true={ratingPicklist.data}>
+
+            <div class="slds-col slds-size_1-of-2 slds-p-right_medium">
+
+                <lightning-combobox label="Rating" options={ratingPicklist.data.values} value={value} onchange={handleRatingChange}></lightning-combobox>
+
+            </div>
+
+        </template>
+
+        <div class="slds-col slds-size_1-of-2 slds-p-right_medium">
+
+            <lightning-input label="Account Name" class="nameCls" value={accountName}  required onchange={handleAccountNameChange}></lightning-input>
+
+        </div>
+
+     <template if:true={typePicklist.data}>
+
+    <div class="slds-col slds-size_1-of-2 slds-p-right_medium">
+
+  <lightning-combobox label="Type" options={typePicklist.data.values} value={value} onchange={handleTypeChange}></lightning-combobox>
+
+    </div>
+
+</template>
+
+    <div class="slds-col slds-size_1-of-2 slds-p-right_medium slds-p-bottom_small" >
+
+       <lightning-input label="Annual Revenue" value={annualRevenue} onchange={handleAnnualRevenueChange}></lightning-input>
+
+    </div>
+    
+</div>
+    
+    
+      <footer class="slds-modal__footer slds-p-top_small ">
+        
+        <lightning-button class="slds-p-right_medium" variant="brand" label="Save" title="Save" onclick={createAccount}></lightning-button>
+        <lightning-button variant="neutral" label="Cancel" title="Cancel" onclick={handleCancel}></lightning-button>
+      
+      </footer>
+    </div>
+        </div>
+    </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+     </lightning-record-edit-form>  
+    </template>
+
+
+
+<template else if:true={showContactModal}>  
+
+    
+<lightning-record-edit-form object-api-name="Contact">
+
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_small" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+        
+        <div class="slds-modal__container">
+    
+            <div class="slds-p-around_medium slds-modal__content">
+    
+                <header class="slds-modal__header">
+    
+                    <h2 class="slds-text-heading_medium">Create Contact</h2>
+    
+                </header>
+    
+        <div class=" slds-modal__content slds-grid slds-wrap slds-p-top_small ">
+    
+            <div class="slds-col slds-size_1-of-2 slds-p-right_medium">
+          {contactAccount}      
+     <lightning-input-field field-name="AccountId"   value = {contactAccount} onchange={handleAccountChange} ></lightning-input-field>
+               
+     <!--<lightning-input label="Account Name" value={contactAccount} onchange={handleInputChange} ></lightning-input>-->
+
+            </div>
+    
+        <div class="slds-col slds-size_1-of-2 slds-p-right_medium">
+    
+           <lightning-input label="Last Name"  class="lastName"  value={LastName} onchange={handleInputChange} required></lightning-input>
+
+        </div>
+    
+        <div class="slds-col slds-size_1-of-2 slds-p-right_medium">
+    
+            <lightning-input label="First Name" value={FirstName} onchange={handleInputChange} ></lightning-input>
+    
+        </div>
+    
+        <div class="slds-col slds-size_1-of-2 slds-p-right_medium">
+    
+            <lightning-input label="Birth Date" value={BirthDate} type="date" onchange={handleInputChange} ></lightning-input>
+
+        </div>
+    
+        <div class="slds-col slds-size_1-of-2 slds-p-right_medium slds-p-bottom_small" >
+    
+            <lightning-input label="Phone" value={Phone} type="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}$" message-when-pattern-mismatch="Please enter a valid phone number"   onchange={handleInputChange} ></lightning-input>
+
+        </div>
+    
+        <template if:true={leadsourcePicklist.data}>
+    
+            <div class="slds-col slds-size_1-of-2 slds-p-right_medium slds-p-bottom_small" >
+    
+       <lightning-combobox name="Lead Source" label="Lead Source" value={value} options={leadsourcePicklist.data.values} onchange={handleInputChange}></lightning-combobox>
+
+            </div>
+    
+    
+    </template>
+    
+    
+        <div class="slds-col slds-size_1-of-2 slds-p-right_medium slds-p-bottom_small" >
+    
+           <lightning-input label="Email" value={Email} pattern="[A-Za-z0-9._-]+@[a-z0-9-]+.[a-z]{2,}$" message-when-pattern-mismatch="Please enter a valid email" type="email" onchange={handleInputChange} ></lightning-input>
+
+        </div>
+    
+        
+    </div>
+    
+      
+    
+    
+      <footer class="slds-modal__footer slds-p-top_small ">
+        
+        <lightning-button class="slds-p-right_medium" variant="brand" label="Save" title="Save" onclick={createContact}></lightning-button>
+        <lightning-button variant="neutral" label="Cancel" title="Cancel" onclick={handleCancel2}></lightning-button>
+      
+      </footer>
+    </div>
+        </div>
+    </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+
+           </lightning-record-edit-form>   
+    </template>
+
+
+
+    
+    </lightning-card>
+    
+
+
+</template>

@@ -1,0 +1,97 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global"  controller="caseRecordHandler" >
+
+    <aura:attribute name="data" type="object"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+   
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" >
+        
+        <thead >
+            <tr  class="slds-page-header"> 
+                <th> Case Number</th>
+                <th>Case Type</th>
+                <center> <th>Subject</th> </center>
+                <th>Contact Name</th>
+                <th>Case Origin</th> 
+            </tr>
+        </thead>
+        
+        <tbody>
+            <aura:iteration items="{!v.data}" indexVar = "index" var="case" >
+                <tr >  
+                    <td>
+                        <a data-id="{!case.Id }" onclick="{!c.recordDetail}" > {!case.CaseNumber} </a>  
+                    </td>
+                    <td>{!case.Type}</td>
+                    <td>{!case.Subject}</td>
+                    <td>{!case.Contact.Name}</td>
+                    <td>{!case.Origin}</td>
+                </tr>
+            </aura:iteration>  
+        </tbody>
+        
+    </table>
+ </aura:component>   
+    
+    
+   
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <!--<table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" aria-label="Example table of Opportunities with vertical borders" >
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Case Number">Case Number</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Case Type">Case Type</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Subject">Subject</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Contact Name">Contact Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Case Origin">Case Origin</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.data}" indexVar = "index" var="case" >
+                <tr class="slds-line-height_reset">
+                    <th data-label="Case Number" scope="row">
+                        <div class="slds-truncate" title="Case Number">
+                            <a href="JavaScript:void(0);"  data-recordid="{!case.Id }" onclick="{!c.recordDetail}" tabindex="-1"> {!case.CaseNumber} </a>
+                              
+                     
+                        </div>
+                    </th>
+                    <td data-label="Case Type">
+                        <div class="slds-truncate" title="Case Type">{!case.Type}</div>
+                    </td>
+                    <td data-label="Subject">
+                        <div class="slds-truncate" title="Subject">{!case.Subject}</div><br></br>
+                    </td>
+                    <td data-label="Contact Name">
+                        <div class="slds-truncate" title="Contact Name">{!case.Contact.Name}</div>
+                    </td>
+                    <td data-label="Case Origin">
+                        <div class="slds-truncate" title="Case Origin">{!case.Origin}</div>
+                    </td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>-->

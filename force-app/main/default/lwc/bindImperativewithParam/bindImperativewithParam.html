@@ -1,0 +1,21 @@
+<template>
+
+    <lightning-card  variant="Narrow"  title="Hello" icon-name="custom:custom2">
+        <lightning-input type="text" variant="standard" name="name" label="Seach Account" onchange={handleChange}></lightning-input>
+       <lightning-button variant="brand" label="Get Accounts"  onclick={handleClick}></lightning-button>
+   
+    <template if:true={accounts}>
+    <div class="slds-var-m-around_medium">
+        <template for:each={accounts} for:item="acc">
+            <lightning-layout key={acc.Id} class="slds-var-m-vertical_x-small">
+                <lightning-layout-item >
+                        {acc.Name}
+                </lightning-layout-item>
+            </lightning-layout> 
+        </template>
+    </div>
+     <div class="slds-var-m-around_medium">{error}</div>
+    </template>
+     </lightning-card>
+
+</template>

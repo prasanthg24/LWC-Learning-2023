@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Cases"  icon-name="standard:case_email">
+        <lightning-datatable
+            key-field="Id"
+            data={cases}
+            columns={columns}
+            onrowaction={handleCaseNumberClick}
+            sorted-direction={defaultSortDirection}
+            sorted-by={defaultSortField}
+            onsort={handleSortData}
+            hide-checkbox-column="true">
+        </lightning-datatable>
+    </lightning-card>
+</template>

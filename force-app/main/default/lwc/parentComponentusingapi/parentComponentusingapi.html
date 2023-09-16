@@ -1,0 +1,11 @@
+<template>
+<lightning-card  variant="Narrow"  title="Parent Component using API" icon-name="standard:account">
+    
+    <div class="slds-var-m-around-medium">
+      <lightning-input type="number" variant="standard" value={percentage} label="Enter the Percentage" placeholder="type here..." 
+      onchange={HandleChange}></lightning-input>
+    </div>
+
+<c-child-componentusingapi percentage ={percentage}></c-child-componentusingapi>
+</lightning-card>
+</template>

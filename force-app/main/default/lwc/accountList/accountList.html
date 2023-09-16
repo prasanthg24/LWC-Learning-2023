@@ -1,0 +1,27 @@
+<template>
+ 
+    <lightning-card  class="custom-card">
+    <div class="header " >
+      <div class="title-container">
+        <h1 class="title">Child Accounts</h1>
+        <div class="button-container">
+        <c-new-Record-Button buttonclick={buttonclick} recordid={recordId} >
+ 
+        </c-new-Record-Button>
+
+        
+      </div>
+      </div>
+    </div>
+ 
+    <lightning-datatable
+      data={childAccountsData}
+      columns={childAccountColumns}
+      key-field="Id">
+      </lightning-datatable>
+
+     <c-contact-List record={recordId}></c-contact-List>
+
+
+  </lightning-card>
+</template>

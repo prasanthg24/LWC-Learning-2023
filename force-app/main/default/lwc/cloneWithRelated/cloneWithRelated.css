@@ -1,0 +1,16 @@
+.slds-grid_align-end > lightning-button {
+            margin-left: 10px;
+        }
+
+        /* Custom CSS for HTML content size */
+        .slds-card {
+            width: 400px;
+        }
+
+        .slds-card p {
+            font-size: 28px;
+        }
+		.custom-checkbox .slds-checkbox_custom {
+            width: 20px;
+            height: 20px;
+        }

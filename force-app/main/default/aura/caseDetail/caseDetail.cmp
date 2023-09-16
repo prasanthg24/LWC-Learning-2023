@@ -1,0 +1,17 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="CloseCaseHandler" >
+    <aura:attribute name="caseId" type="String" />
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <div class="slds-p-around_small">
+        <lightning:recordForm 
+                              recordId="{!v.caseId}" 
+                              objectApiName="Case"
+                              layoutType="Full" 
+                              columns="2"
+                              mode="readonly" />
+        <div class="slds-p-around_small">
+            
+            <center><lightning:button value="Close" label="Close Case" variant="brand" 
+                                      onclick="{!c.closeCase}" /> </center>	
+        </div>
+    </div>
+</aura:component>

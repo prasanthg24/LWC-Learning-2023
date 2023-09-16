@@ -1,0 +1,33 @@
+<template>
+<lightning-card  variant="Narrow"  title="getAccount List" icon-name="standard:account">
+   
+    <div class="slds-var-m-around_medium">
+        <template for:each={accounts.data} for:item="acc">
+            <lightning-layout key={acc.Id} class="slds-var-m-vertical_x-small">
+                <lightning-layout-item >
+                    Name :    {acc.Name}
+                    Phone :    {acc.Phone}
+                </lightning-layout-item>
+            </lightning-layout> 
+        </template>
+    </div>
+   
+   
+</lightning-card>
+</template>
+
+<!--<template>
+    <lightning-card variant="Narrow" title="Account List" icon-name="standard:account">
+        <div class="slds-var-m-around_medium">
+            <template for:each={accounts.data} for:item="acc">
+                <lightning-layout key={acc.Id} class="slds-var-m-vertical_x-small">
+                    <lightning-layout-item size="6" padding="around-small">
+                        <p><b>Name:</b> {acc.Name}</p>
+                        <p><b>Phone:</b> {acc.Phone}</p>
+                    </lightning-layout-item>
+                   
+                </lightning-layout>
+            </template>
+        </div>
+    </lightning-card>
+</template>-->
